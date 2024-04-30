@@ -1,15 +1,13 @@
-import { Injectable, Injector } from 'static-injector';
+import { Injector, inject } from 'static-injector';
 
-@Injectable()
-export class FirstClass {
-  constructor() {}
-  hello() {
-    return 'hello';
+class Main {
+  child = inject(Child);
+}
+class Child {
+  output() {
+    return 'hello world';
   }
 }
-
-let injector = Injector.create({
-  providers: [{ provide: FirstClass }],
-});
-let instance = injector.get(FirstClass);
-console.log(instance.hello());
+let injector = Injector.create({ providers: [Main, Child] });
+const instance = injector.get(Main);
+console.log(instance.child.output());

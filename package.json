@@ -5,16 +5,18 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "tsx ./script/build.ts ./tsconfig.build.json"
+    "build": "tsc -p ./tsconfig.build.json",
+    "build:es": "tsx ./script/build.esbuild.ts "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "static-injector": "^4.0.2",
+    "static-injector": "5.0.1",
     "typescript": "~5.4.2"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "esbuild": "^0.20.2",
     "tsx": "^4.7.2"
   }
 }
